@@ -13,15 +13,11 @@ def pgcd(a, b):
         l.append([a, b, q, r])
         a, b = b, r
     print("=", a)
+    l.pop(0)
     return l
 
 
-def aubv(a, b):
-    a, b = max(a, b), min(a, b)
-    l = pgcd(a, b)[::-1]
-    if input("Avec la forme au + bv ? (y/n) : ").lower() != "y":
-        return
-    l.pop(0)
+def aubv(a, b, l):
     a, b, v, d = l[0]
     u = 1
     print(a, "x", u, "-", b, "x", v, "=", a * u - b * v)
@@ -36,7 +32,15 @@ def aubv(a, b):
         print(a, "x", u, "-", b, "x", v, "=", a * u - b * v)
 
 
-while True:
+def main():
     a = int(input("Premier nombre : "))
     b = int(input("Deuxième nombre : "))
-    aubv(a, b)
+    a, b = max(a, b), min(a, b)
+    l = pgcd(a, b)[::-1]
+    if input("Avec la forme au + bv ? (y/n) : ").lower() != "y":
+        return
+    aubv(a, b, l)
+
+
+while True:
+    main()
