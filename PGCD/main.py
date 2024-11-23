@@ -24,7 +24,8 @@ def pgcd(a, b):
 def aubv(a, b, l):
     a, b, v, d = l[0]
     u = 1
-    finput(a, "x", u, "-", b, "x", v, "=", a * u - b * v)
+    r = a - b * v
+    finput(a, "x", u, "-", b, "x", v, "=", r)
     l.pop(0)
     for i in l:
         if i[3] == a:
@@ -33,11 +34,12 @@ def aubv(a, b, l):
         elif i[3] == b:
             b = i[0]
             u += v * i[2]
-        finput(a, "x", u, "-", b, "x", v, "=", a * u - b * v)
+        r = a * u - b * v
+        finput(a, "x", u, "-", b, "x", v, "=", r)
     if a > b:
-        finput(str(u) + "a - " + str(v) + "b")
+        finput(r, "=", str(u) + "a -", str(v) + "b")
     else:
-        finput("-" + str(v) + "a + " + str(u) + "b")
+        finput(r, "= -" + str(v) + "a +", str(u) + "b")
 
 
 def main():
