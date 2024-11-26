@@ -1,3 +1,7 @@
+#
+#   /!\ A n'utiliser que sur la calculatrice
+#
+
 while True:
     try:
         nb = input("Choisissez un nombre (0x pour hex et 0b pour bin) : ")
@@ -5,4 +9,5 @@ while True:
         print("Hexadécimal :", hex(int(nb)))
         print("Décimal :", int(nb))
     except:
-        pass
+        if nb == "":
+            break
